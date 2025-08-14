@@ -1,0 +1,38 @@
+/* inicio.css */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  grid-template-areas:
+    "background background"
+    "titulo titulo";
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}
