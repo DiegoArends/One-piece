@@ -2,9 +2,11 @@ import './inicio.css';
 import background from '../assets/background.webp';
 import titulo from '../assets/Titulo.png';
 import { useState } from 'react';
+import TodoList from '../componets/Todo'; // ← Importar TodoList
 
 function Inicio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showTodoList, setShowTodoList] = useState(false); // ← Estado para TodoList
   return (
     <div className="layout">
 
@@ -24,11 +26,51 @@ function Inicio() {
         </button>
 
         <nav id="menu-nav" className={`floating-menu ${menuOpen ? 'is-open' : ''}`} aria-label="Menú principal">
-          <a href="#Frase del Día" className="menu-item">Frase del Día</a>
-          <a href="#Lista de Tareas" className="menu-item">Lista de Tareas</a>
-          <a href="#Metas Semanales" className="menu-item">Metas Semanales</a>
-          <a href="#Baúl del Nakama" className="menu-item">Baúl del Nakama</a>
+         
+
+         <button 
+         onClick={() => {}} 
+         className="menu-item"
+         >
+          Frase del Día
+         </button>
+
+          <button 
+            onClick={() => {setShowTodoList(true) }} 
+            className="menu-item"   
+          >
+            Lista de Tareas
+          </button>
+          <button 
+          onClick={() => {}} 
+          className="menu-item"
+          >
+            Metas Semanales
+          </button>
+          <button 
+          onClick={() => {}} 
+          className="menu-item"
+          >
+            Baúl del Nakama
+          </button>
+          
+    
         </nav>
+
+        {/* Modal del TodoList */}
+        {showTodoList && (
+          <div className="todo-modal">
+            <div className="todo-modal-content">
+              <button 
+                className="close-todo"
+                onClick={() => setShowTodoList(false)}
+              >
+                ✕
+              </button>
+              <TodoList />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
